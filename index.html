@@ -1,46 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VivaTech RnD</title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="./style/index.css">
 </head>
 
 <body>
 
-<h2>User Registration</h2>
+    <div id="login-background">
+        <div class="login-container">
+            <div class="popup-content">
+                <span class="close" onclick="closePopup()">&times;</span>
+            </div>
+            
+            <div class="login">
+                <h2>Login / SignUp</h2>
 
-<div class="container">
+                <form id="loginForm">
+                    <input type="tel" min="10" max="10" id="contactNumber" placeholder="Enter Your Mobile Number" required>
+                    <button type="submit" class="btn">Login / Sign Up</button>
+                </form>
+            </div>
+            <div class="register-container">
+                <hr>
 
-    <input type="text" id="name" placeholder="Enter Name">
-    <input type="text" id="contactNumber" placeholder="Enter Mobile Number">
-    <input type="text" id="roleId" placeholder="Enter Role ID">
+                <h2>Other Details</h2>
 
-    <button onclick="addUser()">Add User</button>
+                <form id="registerForm">
+                    <input type="text" id="name" placeholder="Enter Your Name" required>
+                    <select id="role" required>
+                        <option value="">Select Your Role</option>
+                    </select>
+                    <button class="btn" id="registerBtn">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
-    <hr>
+    <div id="otp-verification-background">
+        <div class="login-container">
+            <div class="popup-content">
+                <span class="close" onclick="closeOtpPopup()">&times;</span>
+            </div>
+            <div class="login">
+                <h2>Otp</h2>
 
-    <h3>Send OTP</h3>
+                <form id="otpForm">
+                    <input type="number" min="6" max="6" id="otp" placeholder="Enter Otp" required>
+                    <button type="submit" class="btn margin-top">Submit OTP</button>
+                </form>
+                <p id="resentOtp">Resent Otp</p>
+            </div>
+        </div>
+    </div>
 
-    <input type="text" id="otpMobile" placeholder="Mobile Number">
+    <div class="navbar">
 
-    <button onclick="sendOtp()">Send OTP</button>
+        <div class="logo">
+            Viva Tech R&D
+        </div>
+        <div>
+            <div class="nav-links">
+                <button class="btn user-login">Login / SignUp</button>
+            </div>
 
-    <hr>
+            <div class="nav-links">
+                <button class="btn user-logout">Logout</button>
+            </div>
+        </div>
+    </div>
 
-    <h3>Verify OTP</h3>
 
-    <input type="text" id="verifyMobile" placeholder="Mobile Number">
-    <input type="text" id="otp" placeholder="Enter OTP">
+    <div class="hero">
 
-    <button onclick="verifyOtp()">Verify OTP</button>
+        <h1>Welcome to Viva Tech R&D</h1>
 
-    <p id="result"></p>
+        <p>
+            A modern backend platform built with Spring Boot, Role Based Access Control,
+            and OTP Authentication to manage users securely and efficiently.
+        </p>
 
-</div>
+        <button class="btn user-login margin-top-with-auto">
+            Get Started
+        </button>
 
-<script src="script.js"></script>
-
+    </div>
+    <script src="./js/index.js"></script>
 </body>
+
 </html>
