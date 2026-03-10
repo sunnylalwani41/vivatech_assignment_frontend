@@ -29,16 +29,15 @@ This project provides a simple UI for **OTP-based login and user registration**,
 ---
 
 # 📂 Project Structure
-
+```
 VIVATECH_ASSIGNMENT_FRONTEND/
 │
 ├── index.html
 ├── css/
 │   └── style.css
-│
 ├── js/
     └── index.js
-
+```
 ---
 # ⚙️ Configuration
 
