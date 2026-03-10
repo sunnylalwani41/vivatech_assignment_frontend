@@ -1,4 +1,5 @@
 const BASE_URL = "https://vivatechrndbackend--d9352967050.replit.app";
+// const BASE_URL = "http://localhost:8080";
 
 function addUser(data){
 
@@ -23,7 +24,7 @@ function sendOtp(){
 
     const mobile=document.getElementById("contactNumber").value;
 
-    fetch(BASE_URL + "/otp_send?contactNumber="+mobile)
+    fetch(BASE_URL + "/send_otp?contactNumber="+mobile)
     .then(res=>res.json())
     .then(data=>{
         console.log(data);
@@ -82,21 +83,24 @@ function getAllRole(){
     fetch(BASE_URL + "/get_all_role")
     .then(res=>res.json())
     .then(data=>{
-        let roleSelect = document.getElementById("roleId");
+        let roleSelect = document.getElementById("role");
         
         roleSelect.innerHTML = ""; // Clear existing options
         //default option
         let defaultOption = document.createElement("option");
-        option.value = "";
-        option.text = "Select Role";
+        defaultOption.value = "";
+        defaultOption.text = "Select Role";
         roleSelect.appendChild(defaultOption);
 
-        data.forEach(role => {
-            let option = document.createElement("option");
-            option.value = role.id;
-            option.text = role.name;
-            roleSelect.appendChild(option);
-        });
+        console.log(data);
+        if(data?.object?.length){
+            data.object.forEach(role => {
+                let option = document.createElement("option");
+                option.value = role.uuid;
+                option.text = role.roleName;
+                roleSelect.appendChild(option);
+            });
+        }
     })
     .catch(err=>console.log(err));
 }
@@ -128,13 +132,17 @@ let openOtpVerificationSession = () => {
 let registerationFormDisplay = () => {
     document.querySelector(".register-container").style.display = "flex";
 
-    document.getElementById("registerForm").addEventListener("click", (e) => {
+    document.getElementById("registerForm").addEventListener("submit", (e) => {
         e.preventDefault();
+        let roleSelect = document.getElementById("role").value;
+        if(!roleSelect){
+            roleSelect = null;
+        }
         
         const data = {
             name: document.getElementById("name").value,
             contactNumber: document.getElementById("contactNumber").value,
-            roleId: document.getElementById("role").value
+            roleId: roleSelect 
         };
 
         addUser(data);
@@ -180,3 +188,6 @@ document.querySelector(".user-logout").addEventListener("click", () => {
 });
 
 localStorage.getItem("token") ? displayLogoutButton() : displayLoginButton();
+
+
+// add role, add access control, test access control

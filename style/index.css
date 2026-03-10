@@ -132,6 +132,15 @@ select{
     display: none;
 }
 
+.register-container{
+    flex-direction: column;
+    align-items: center;
+}
+
+hr{
+    width: 100%;
+}
+
 #resentOtp{
     color: #007bff;
     cursor: pointer;

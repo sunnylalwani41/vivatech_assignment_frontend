@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VivaTech RnD</title>
     <link rel="stylesheet" href="./style/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -20,7 +21,7 @@
                 <h2>Login / SignUp</h2>
 
                 <form id="loginForm">
-                    <input type="tel" min="10" max="10" id="contactNumber" placeholder="Enter Your Mobile Number" required>
+                    <input type="text" maxlength="10" minlength="10" pattern="[0-9]{10}" id="contactNumber" placeholder="Enter Your Mobile Number" required>
                     <button type="submit" class="btn">Login / Sign Up</button>
                 </form>
             </div>
@@ -49,7 +50,7 @@
                 <h2>Otp</h2>
 
                 <form id="otpForm">
-                    <input type="number" min="6" max="6" id="otp" placeholder="Enter Otp" required>
+                    <input type="text" maxlength="6" minlength="6" pattern="[0-9]{6}" inputmode="numeric" id="otp" placeholder="Enter Otp" required>
                     <button type="submit" class="btn margin-top">Submit OTP</button>
                 </form>
                 <p id="resentOtp">Resent Otp</p>
